@@ -19,7 +19,7 @@ namespace IntegradorSkyNet.Terreno
 
         public Terreno()
         {
-            terreno = new char[10, 10];
+            terreno = new char[30, 30];
             GenerarTerreno();
         }
 
@@ -27,20 +27,22 @@ namespace IntegradorSkyNet.Terreno
         {
             Random random = new Random();
             int cuarteles = 0, sitiosReciclaje = 0;
+            int maxCuarteles = 5;
+            int maxSitiosReciclaje = 15;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 30; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < 30; j++)
                 {
                     char tipoTerreno;
                     int probabilidad = random.Next(0, 100);
 
-                    if (probabilidad < 5 && cuarteles < 3)
+                    if (probabilidad < 5 && cuarteles < maxCuarteles)
                     {
                         tipoTerreno = Cuartel;
                         cuarteles++;
                     }
-                    else if (probabilidad < 10 && sitiosReciclaje < 5)
+                    else if (probabilidad < 10 && sitiosReciclaje < maxSitiosReciclaje)
                     {
                         tipoTerreno = SitioReciclaje;
                         sitiosReciclaje++;
@@ -59,11 +61,16 @@ namespace IntegradorSkyNet.Terreno
             }
         }
 
+
         public void MostrarTerreno()
         {
-            for (int i = 0; i < 10; i++)
+            Console.Clear();
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            for (int i = 0; i < 30; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < 30; j++)
                 {
                     Console.Write(terreno[i, j] + " ");
                 }
