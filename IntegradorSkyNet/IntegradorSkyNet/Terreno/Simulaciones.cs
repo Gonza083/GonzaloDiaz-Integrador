@@ -28,7 +28,7 @@ namespace IntegradorSkyNet.Terreno
         {
             EstadoSimulacion estadoSimulacion = GenerarNuevaSimulacion();
             GestorDeSimulacion.GuardarEstado("simulacion.json", estadoSimulacion);
-            //  iría el codigo para continuar con la nueva simulacion...
+            //   codigo para continuar con la nueva simulacion...
         }
 
         public static EstadoSimulacion GenerarNuevaSimulacion()

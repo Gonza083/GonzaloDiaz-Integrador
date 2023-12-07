@@ -9,11 +9,15 @@ namespace IntegradorSkyNet.Operadores
     //drones voladores
     public class UAV : Operador
     {
-        public UAV(string id, string ubicacionActual)
-            : base(id, new Bateria(4000), 5, 60, ubicacionActual) // 60 es un ejemplo de velocidad óptima
+        private const double CapacidadCargaMaximaUAV = 250.0; // kg
+        private const double VelocidadOptimaUAV = 25.0; // km/h, valor hipotético
+
+        public UAV(string ubicacionActual)
+            : base(new Bateria(12250), CapacidadCargaMaximaUAV, VelocidadOptimaUAV, ubicacionActual)
         {
+            // Aquí puedes agregar más propiedades o métodos específicos de UAV
         }
 
-
+        // Métodos adicionales específicos de UAV
     }
 }

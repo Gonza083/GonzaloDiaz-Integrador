@@ -13,14 +13,15 @@ namespace IntegradorSkyNet
     internal class Program
 
     {
-        static void Main(string[] args)
+
+
+        
+       public static void Main(string[] args)
         {
             Terreno.Terreno terreno = new Terreno.Terreno();
+
+
             List<Operador> operadores = new List<Operador>();
-            operadores.Add(new K9("k9-Bart", "x;y"));
-            operadores.Add(new K9("k9-Marge", "x;y"));
-            operadores.Add(new K9("k9-Homero", "x;y"));
-            operadores.Add(new K9("k9-Flanders", "x;y"));
 
             Menu.MostrarMenu(operadores, terreno);
         }

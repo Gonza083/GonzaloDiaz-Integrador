@@ -58,7 +58,7 @@ namespace IntegradorSkyNet
                         // Implementa ListarEstados();
                         break;
                     case 7:
-                         Helpers.AgregarOperador(operadores);
+                        MostrarMenuOperadores(operadores);
                          break;
                     case 8:
                          // Implementa RemoverOperador();
@@ -73,7 +73,34 @@ namespace IntegradorSkyNet
                 }
 
             } while (opcion != 4);
-        }
 
+
+        }
+        public static void MostrarMenuOperadores(List<Operador> operadores)
+        {
+            Console.WriteLine("Elige el tipo de operador a crear:");
+            Console.WriteLine("1. K9");
+            Console.WriteLine("2. M8");
+            Console.WriteLine("3. UAV");
+            // Leer la elección del usuario y llamar al método correspondiente
+            int opcion = int.Parse(Console.ReadLine());
+            switch (opcion)
+            {
+                case 1:
+ 
+                  Helpers.AgregarOperadorK9(operadores);
+                    break;
+                case 2:
+
+                    Helpers.AgregarOperadorM8(operadores);
+                    break;
+                case 3:
+                    Helpers.AgregarOperadorUAV(operadores);
+                    break;
+                default:
+                    Console.WriteLine("Opción no válida");
+                    break;
+            }
+        }
     }
 }

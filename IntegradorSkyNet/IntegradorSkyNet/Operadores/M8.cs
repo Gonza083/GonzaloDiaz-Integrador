@@ -9,9 +9,16 @@ namespace IntegradorSkyNet.Operadores
     //semi-humanoides de carga
     public class M8 : Operador
     {
-        public M8(string id, string ubicacionActual)
-            : base(id, new Bateria(12250), 250, 30, ubicacionActual) // 30 es un ejemplo de velocidad óptima
+        private const double CapacidadCargaMaximaM8 = 40.0; // kg
+        private const double VelocidadOptimaM8 = 15.0; // km/h, valor hipotético
+
+        public M8(string ubicacionActual)
+            : base(new Bateria(6500), CapacidadCargaMaximaM8, VelocidadOptimaM8, ubicacionActual)
         {
+            // Aquí puedes agregar más propiedades o métodos específicos de M8
         }
+
+        // Métodos adicionales específicos de M8
     }
+
 }

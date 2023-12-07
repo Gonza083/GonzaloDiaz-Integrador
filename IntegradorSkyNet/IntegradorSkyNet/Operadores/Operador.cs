@@ -8,29 +8,33 @@ namespace IntegradorSkyNet.Operadores
 {
     public class Operador
     {
-        public string ID { get; set; }
+        private static int contadorId = 0;
+
+        public string ID { get; private set; }
         public Bateria Bateria { get; protected set; }
-        public string EstadoGeneral { get; set; }
+        public string EstadoGeneral { get; set; } = "En buen estado";
         public double CapacidadCargaMaxima { get; protected set; }
         public double VelocidadOptima { get; protected set; }
         public string UbicacionActual { get; set; }
 
-        public bool EstaDanado { get; set; }
-
-
-        public bool EstaOcupado { get; set; }
-        //public [,] Localizacion { get; set; }
+        public bool EstaDanado { get; set; } = false;
+        public bool EstaOcupado { get; set; } = false;
 
         private double VelocidadInicial;
 
-        public Operador(string id, Bateria bateria, double capacidadCargaMaxima, double velocidadOptima, string ubicacionActual)
+        public Operador(Bateria bateria, double capacidadCargaMaxima, double velocidadOptima, string ubicacionActual)
         {
-            ID = id; //haer funcin para generar id
-            Bateria = bateria; //ver si esta relacionado bien con la calse bateria
+            ID = GenerarID();
+            Bateria = bateria;
             CapacidadCargaMaxima = capacidadCargaMaxima;
             VelocidadOptima = velocidadOptima;
-            VelocidadInicial = velocidadOptima; //puesta una de ejemplo
+            VelocidadInicial = velocidadOptima;
             UbicacionActual = ubicacionActual;
+        }
+
+        private string GenerarID()
+        {
+            return "OP" + (++contadorId).ToString("D4"); // Genera ID como OP0001, OP0002, etc.
         }
 
         public void Moverse(string nuevaUbicacion)

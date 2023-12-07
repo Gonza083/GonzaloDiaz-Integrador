@@ -8,35 +8,51 @@ using System.Threading.Tasks;
 namespace IntegradorSkyNet
 {
     public class Helpers
+
+
     {
-        static public void ListarOperadores(List<Operador> operadores)
+    
+       public static List<Operador> operadores = new List<Operador>();
+        
+        
+        static public void ListarOperadores(List<Operador> op)
         {
-            foreach (var operador in operadores)
+            Console.Clear();
+            Console.WriteLine("estos son los operadores:");
+            foreach (var operador in op)
             {
                 Console.WriteLine(operador.ID); // Asegúrate de que la clase Operador tenga un método ToString adecuado.
             }
         }
 
-        //hard coding de k9, tiene que ser un operador y que te de la opcin de que tipo va a ser
-        //ver tema ubicacion con clase Localizacion... por ahora un string de preuba
-        static public void AgregarOperador(List<Operador> operadores)
+        
+        public static void AgregarOperadorK9(List<Operador> operadores)
         {
-            Console.WriteLine("Agregar nuevo operador.");
-
-            Console.Write("Ingrese ID del operador: ");
-            string id = Console.ReadLine();
-
-            Console.Write("Ingrese nombre del operador: ");
-            string ubicacion = Console.ReadLine();
-
-            // Crear una nueva instancia de Operador
-            Operador nuevoOperador = new K9(id, ubicacion);
-
-            // Agregar el nuevo operador a la lista
-            operadores.Add(nuevoOperador);
-
-            Console.WriteLine("Operador agregado con éxito.");
+            Console.Clear();
+            // Crear un nuevo operador K9
+            K9 nuevoK9 = new K9("Ubicación inicial de K9");
+            operadores.Add(nuevoK9);
+            Console.WriteLine($"Operador K9 creado con ID: {nuevoK9.ID}");
         }
+
+        public static void AgregarOperadorM8(List<Operador> operadores)
+        {
+            Console.Clear();
+            // Crear un nuevo operador M8
+            M8 nuevoM8 = new M8("Ubicación inicial de M8");
+            operadores.Add(nuevoM8);
+            Console.WriteLine($"Operador M8 creado con ID: {nuevoM8.ID}");
+        }
+
+        public static void AgregarOperadorUAV(List<Operador> operadores)
+        {
+            Console.Clear();
+            // Crear un nuevo operador UAV
+            UAV nuevoUAV = new UAV("Ubicación inicial de UAV");
+            operadores.Add(nuevoUAV);
+            Console.WriteLine($"Operador UAV creado con ID: {nuevoUAV.ID}");
+        }
+
     }
 }
 

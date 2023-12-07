@@ -9,9 +9,15 @@ namespace IntegradorSkyNet.Operadores
     //unidades cuadrúpedas
     public class K9 : Operador
     {
-        public K9(string id, string ubicacionActual)
-            : base(id, new Bateria(6500), 40, 45, ubicacionActual) // 45 es un ejemplo de velocidad óptima
+        private const double CapacidadCargaMaximaK9 = 5.0; // kg
+        private const double VelocidadOptimaK9 = 10.0; // km/h, ejemplo
+
+        public K9(string ubicacionActual)
+            : base(new Bateria(4000), CapacidadCargaMaximaK9, VelocidadOptimaK9, ubicacionActual)
         {
+            // Aquí puedes agregar más propiedades o métodos específicos de K9
         }
+
+        // Métodos adicionales específicos de K9
     }
 }
